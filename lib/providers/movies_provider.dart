@@ -11,10 +11,12 @@ class MoviesProvider extends ChangeNotifier{
   List<Movie> onDisplayMovies = [];
   List<Movie> popularMovies = [];
   List<Movie> topRatedMovies = [];
+  List<Movie> upComingMovies = [];
 
   Map<int,List<Cast>> moviesCast = {};
   int _popularPage = 0;
   int _topRatedPage = 0;
+  int _upcomingPage = 0;
 
   String _apiKey = '7fca11b4d7d080153c7cccba02a68ed1';
   String _language = 'es-ES';
@@ -30,6 +32,7 @@ class MoviesProvider extends ChangeNotifier{
     getOnDisplayMovies();
     getPopularMovies();
     getTopRatedMovies();
+    getUpComingMovies();
   }
 
   Future<String> _getJsonData(String endpoint, [int page=1]) async{
@@ -62,6 +65,14 @@ class MoviesProvider extends ChangeNotifier{
     final jsonData = await _getJsonData('3/movie/top_rated',_topRatedPage);
     final topRatedMovie = TopRatedResponse.fromJson(jsonData);
     topRatedMovies = [...topRatedMovies,...topRatedMovie.results];
+    notifyListeners();
+  }
+
+  getUpComingMovies() async{
+    _upcomingPage++;
+    final jsonData = await _getJsonData('3/movie/upcoming', _upcomingPage);
+    final upComingResponse = UpcomingResponse.fromJson(jsonData);
+    upComingMovies = [...upComingMovies,...upComingResponse.results];
     notifyListeners();
   }
 
