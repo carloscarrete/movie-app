@@ -8,3 +8,6 @@ export 'package:peliculas/models/pupular_response.dart';
 
 export 'package:peliculas/models/credits_response.dart';
 
+export 'package:peliculas/models/top_rated_response.dart';
+
+
