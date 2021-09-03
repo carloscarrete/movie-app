@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Películas',
+      title: 'Movie App',
       initialRoute: 'home',
       routes: {
         'home' : (_) => HomeScreen(),

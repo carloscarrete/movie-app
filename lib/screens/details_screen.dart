@@ -82,7 +82,7 @@ class _PosterAndTitle extends StatelessWidget {
               child: FadeInImage.assetNetwork(
                 placeholder: 'assets/loading.gif', 
                 image: movie.getImages,
-                height: 150,),
+                height: 145,),
             ),
           ),
           SizedBox(width: 15,),
@@ -96,7 +96,14 @@ class _PosterAndTitle extends StatelessWidget {
                   children: [
                     Icon(Icons.star_outline, size: 15, ),
                     SizedBox(width: 5,),
-                    Text(movie.voteAverage.toString(),style: Theme.of(context).textTheme.caption,)
+                    Text(movie.voteAverage.toString(),style: Theme.of(context).textTheme.caption,),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text('Fecha de lanzamiento: ',style: Theme.of(context).textTheme.subtitle2, overflow: TextOverflow.ellipsis, maxLines: 2,),
+                    SizedBox(width: 5,),
+                    Text(movie.releaseDate.toString()),
                   ],
                 )
               ],),
@@ -113,10 +120,16 @@ class _OverView extends StatelessWidget {
   const _OverView({Key? key, required this.movie}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-      child: Text(movie.overview,textAlign: TextAlign.justify,
-      style: Theme.of(context).textTheme.subtitle1,),
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+          child: Text(movie.overview,textAlign: TextAlign.justify,
+          style: Theme.of(context).textTheme.subtitle1,),
+        ),
+        Text('Reparto',textAlign: TextAlign.start,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+        SizedBox(height: 8)
+      ],
     );
   }
 }

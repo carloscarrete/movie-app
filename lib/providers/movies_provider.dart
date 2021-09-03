@@ -28,7 +28,6 @@ class MoviesProvider extends ChangeNotifier{
   final debouncer = new Debouncer(duration: Duration(microseconds: 500),);
 
   MoviesProvider(){
-    print('Inicializado');
     getOnDisplayMovies();
     getPopularMovies();
     getTopRatedMovies();
@@ -86,13 +85,11 @@ class MoviesProvider extends ChangeNotifier{
   }
 
   Future<List<Movie>> searchMovies(String query) async{
-    print('valor: $query');
       final url = Uri.https(_base, '3/search/movie',{
       'api_key' : _apiKey,
       'language' : _language,
       'query' : '$query'
     });
-    print('valor 2: $query');
     final response = await http.get(url);
     final searchRespone = SearchResponse.fromJson(response.body);
     return searchRespone.results;

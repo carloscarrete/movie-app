@@ -27,7 +27,7 @@ class CastingCards extends StatelessWidget {
 
         return Container(
           margin: EdgeInsets.only(bottom: 30),
-          height: 190,
+          height: 182,
           width: double.infinity,
           child: ListView.builder(
             itemCount: cast.length,
@@ -50,9 +50,9 @@ class _CastCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150,
+      width: 120,
       height: 100,
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: EdgeInsets.symmetric(horizontal: 1),
       child: Column(
         children: [
           ClipRRect(

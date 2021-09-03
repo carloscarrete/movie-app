@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     final animeProvider = Provider.of<AnimeProvider>(context);
      return Scaffold(
       appBar: AppBar(
-        title: Text('Películas en Cine'),
+        title: Text('TuApp Movie'),
         centerTitle: true,
         elevation: 0,
         actions: [
